@@ -13,8 +13,10 @@ package frc.robot; //Creates the package for our robot
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.Joystick;
 
 import static frc.robot.utilities.Util.log;
+import static frc.robot.Constants.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -29,6 +31,9 @@ public class Robot extends TimedRobot {
   private static final String kCustomAuto = "My Auto";
   private String m_autoSelected; 
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
+
+  Joystick rightJoy = new Joystick(RIGHT_JOYSTICK_PORT);
+  Joystick leftJoy = new Joystick(LEFT_JOYSTICK_PORT);
 
   /**
    * This function is run when the robot is first started up and should be
@@ -52,6 +57,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
+    
   }
 
   /**
