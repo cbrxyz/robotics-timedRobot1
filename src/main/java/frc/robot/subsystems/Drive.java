@@ -18,7 +18,7 @@ import frc.robot.Constants;
 import static frc.robot.utilities.Util.log;
 
 /**
- * Add your docs here.
+ * This command is used to drive the robot.
  */
 public class Drive extends Subsystem {
   // Put methods for controlling this subsystem
@@ -38,9 +38,6 @@ public class Drive extends Subsystem {
 
   @Override
   public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-
     rightTalon2.follow(rightTalon);
     rightTalon3.follow(rightTalon);
     leftTalon2.follow(leftTalon);
@@ -62,7 +59,7 @@ public class Drive extends Subsystem {
     if ((Math.abs(rightVelocity) < 1) && (Math.abs(leftVelocity) < 1)) {
       rightTalon.set(ControlMode.PercentOutput, rightVelocity);
       leftTalon.set(ControlMode.PercentOutput, leftVelocity);
-    } else if ((Math.abs(rightVelocity) < Constants.JOYSTICK_MOTOR_STOP_POINT) && (Math.abs(leftVelocity) < Constants.JOYSTICK_MOTOR_STOP_POINT) {
+    } else if ((Math.abs(rightVelocity) < Constants.JOYSTICK_MOTOR_STOP_POINT) && (Math.abs(leftVelocity) < Constants.JOYSTICK_MOTOR_STOP_POINT)) {
       //This will set the velocity of the motors to 0 to stop the motors from moving when the joystick is at almost 0
       rightTalon.set(ControlMode.PercentOutput, 0);
       leftTalon.set(ControlMode.PercentOutput, 0);

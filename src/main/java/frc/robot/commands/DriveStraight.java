@@ -7,12 +7,10 @@ import static frc.robot.utilities.Util.log;
 
 public class DriveStraight extends Command {
     
-    /*
     public void DriveStraightInfo() {
         requires(Robot.drive);
-
+        //What's the point of this?
     }
-    */
 
     protected void initialize() {
         Robot.drive.setBoth(0, 0);
