@@ -15,6 +15,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.*;
 
 import frc.robot.Constants;
+import static frc.robot.utilities.Util.log;
 
 /**
  * Add your docs here.
@@ -57,14 +58,16 @@ public class Drive extends Subsystem {
      */
   }
 
-  public void setBoth(double velocity) {
-    if (Math.abs(velocity) < 1) {
-      rightTalon.set(ControlMode.PercentOutput, velocity);
-      leftTalon.set(ControlMode.PercentOutput, velocity);
-    } else if (Math.abs(velocity) < Constants.JOYSTICK_MOTOR_STOP_POINT) {
+  public void setBoth(double rightVelocity, double leftVelocity) {
+    if ((Math.abs(rightVelocity) < 1) && (Math.abs(leftVelocity) < 1)) {
+      rightTalon.set(ControlMode.PercentOutput, rightVelocity);
+      leftTalon.set(ControlMode.PercentOutput, leftVelocity);
+    } else if ((Math.abs(rightVelocity) < Constants.JOYSTICK_MOTOR_STOP_POINT) && (Math.abs(leftVelocity) < Constants.JOYSTICK_MOTOR_STOP_POINT) {
       //This will set the velocity of the motors to 0 to stop the motors from moving when the joystick is at almost 0
       rightTalon.set(ControlMode.PercentOutput, 0);
       leftTalon.set(ControlMode.PercentOutput, 0);
+    } else {
+      log("Error: The velocity receieved by setBoth was too high/low. The velocity needs to be between -1 and 1. Right velocity received: " + rightVelocity + ", left velocity received: " + leftVelocity);
     }
   }
 }

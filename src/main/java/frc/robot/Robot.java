@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.Joystick;
 
 import static frc.robot.utilities.Util.log;
 import frc.robot.Constants;
+import frc.robot.subsystems.Drive;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -26,14 +27,16 @@ import frc.robot.Constants;
  * project.
  */
 public class Robot extends TimedRobot {
-  //Not sure what these things are
-  private static final String kDefaultAuto = "Default"; 
+  // Not sure what these things are
+  private static final String kDefaultAuto = "Default";
   private static final String kCustomAuto = "My Auto";
-  private String m_autoSelected; 
+  private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
-  Joystick rightJoy = new Joystick(Constants.RIGHT_JOYSTICK_PORT);
-  Joystick leftJoy = new Joystick(Constants.LEFT_JOYSTICK_PORT);
+  public static Joystick rightJoy = new Joystick(Constants.RIGHT_JOYSTICK_PORT);
+  public static Joystick leftJoy = new Joystick(Constants.LEFT_JOYSTICK_PORT);
+
+  public static Drive drive = new Drive();
 
   /**
    * This function is run when the robot is first started up and should be
