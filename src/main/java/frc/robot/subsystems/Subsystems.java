@@ -1,5 +1,5 @@
 package frc.robot.subsystems;
 
-public abstract class Subsystem {
+public abstract class Subsystems {
     public abstract void Drive();
 }
