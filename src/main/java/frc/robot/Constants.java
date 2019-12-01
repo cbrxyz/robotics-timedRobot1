@@ -12,4 +12,11 @@ public final class Constants {
     public final static int FOL2_LEFT_TALON = 5;
 
     public final static double JOYSTICK_MOTOR_STOP_POINT = 0.1;
+
+    public static final String ROBOT_MAIN_PATH = "/home/lvuser/";
+    public static final String ROBOT_IDENTIFICATION_PATH = ROBOT_MAIN_PATH + "RobotID";
+
+    public static void setValues() {
+
+    } 
 }
